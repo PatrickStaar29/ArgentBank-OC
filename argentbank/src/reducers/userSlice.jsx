@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     loading: false,
@@ -24,6 +24,15 @@ const userSlice = createSlice({
         },
         setUserToken: (state, action) => {
             state.token = action.payload; 
+        },
+        setUserFirstName: (state, action) => {
+            state.firstName = action.payload;
+        },
+        setUserLastName: (state, action) => {
+            state.lastName = action.payload
+        },
+        setUserName: (state, action) => {
+            state.userName = action.payload
         }
     }
 })
@@ -32,5 +41,8 @@ export const {
     userResetRememberMe,
     userSetRememberMe,
     setUserToken,
+    setUserFirstName,
+    setUserLastName,
+    setUserName,
 } = userSlice.actions
 export default userSlice.reducer

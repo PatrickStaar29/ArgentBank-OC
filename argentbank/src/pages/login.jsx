@@ -2,7 +2,7 @@ import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
 import Form from '../components/form/form'
 
-function Signin (){
+function Login (){
     return(
         <>
             <Header/>
@@ -10,9 +10,8 @@ function Signin (){
                     <Form/>
                 </main>
             <Footer/>
-            <script src='./js/connection.js'></script>
         </>
     )
 }
 
-export default Signin
+export default Login

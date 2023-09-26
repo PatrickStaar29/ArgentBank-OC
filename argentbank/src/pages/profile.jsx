@@ -5,7 +5,7 @@ import Footer from "../components/footer/footer"
 import Header from "../components/header/header"
 import Userbanner from "../components/user-banner/user-banner"
 
-function User (){
+function Profile (){
     return(
         <>
             <Header/>
@@ -20,4 +20,4 @@ function User (){
     )
 }
 
-export default User
+export default Profile

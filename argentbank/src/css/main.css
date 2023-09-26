@@ -13,6 +13,10 @@ html {
     min-height: 100vh;
   }
 
+  .textdisplay{
+    display: none;
+  }
+
   #root {
     margin: 0;
     display: flex;
@@ -61,6 +65,7 @@ html {
   .main-nav-item {
     text-decoration: none;
     margin-right: 0.5rem;
+    list-style: none;
   }
   
   .main-nav-item:hover {
@@ -297,3 +302,51 @@ html {
     }
   }
   
+.userform{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+  
+.userform_placement{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userform_text{
+  margin: 0;
+}
+
+.userform_placeholder{
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.disabled-placeholder{
+  background: lightgray;
+}
+
+.userform_style{
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.userform_button{
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px;
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+}
+
