@@ -16,7 +16,7 @@ function Form() {
     const password = document.getElementById('password').value;
 
     dispatch(loginUser(email, password, handleSignInSuccess))
-  };
+  }
 
   return (
     <section className="sign-in-content">
@@ -40,7 +40,7 @@ function Form() {
         </button>
       </form>
     </section>
-  );
+  )
 }
 
 export default Form;

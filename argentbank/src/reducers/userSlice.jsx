@@ -33,7 +33,7 @@ const userSlice = createSlice({
         },
         setUserName: (state, action) => {
             state.userName = action.payload
-        }
+        },
     }
 })
 

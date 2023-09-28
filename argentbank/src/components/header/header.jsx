@@ -9,7 +9,7 @@ function Header (){
     const dispatch = useDispatch()
 
     const handleLogout = () => {
-      dispatch(logoutUser());
+      dispatch(logoutUser())
     }
     
     const isLogoutVisible = location.pathname === '/' || location.pathname === '/login'
@@ -17,17 +17,17 @@ function Header (){
 
     const userName = useSelector((state) => state.user.userName);
     return(
-        <header>
+        <header className='main-header'>
+            <img className="main-nav-logo-image" src={Logo} alt="Argent Bank Logo"/>
             <nav className="main-nav">
-                <Link className="main-nav-logo" to='/'>
-                    <img className="main-nav-logo-image" src={Logo} alt="Argent Bank Logo"/>
-                    <h1 className="sr-only">Argent Bank</h1>
-                </Link>
                 <li className={`main-nav-item ${isSignInVisible ? 'textdisplay' : ''}`}>
                     <Link to="/login">
                         <i className="fa fa-user-circle"></i>
                         Sign In
                     </Link>
+                </li>
+                <li className={`main-nav-username ${isLogoutVisible ? 'textdisplay' : ''}`}>
+                    {userName}
                 </li>
                 <li className={`main-nav-item ${isLogoutVisible ? 'textdisplay' : ''}`}>
                     <Link to="/" onClick={handleLogout}>

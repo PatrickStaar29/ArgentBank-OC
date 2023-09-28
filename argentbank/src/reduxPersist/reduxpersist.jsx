@@ -6,12 +6,12 @@ import { configureStore } from '@reduxjs/toolkit';
 const persistConfig = {
   key: 'root',
   storage,
-};
+}
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-});
+})
 
 export const persistor = persistStore(store);

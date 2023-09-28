@@ -29,7 +29,7 @@ function Userbanner() {
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default Userbanner;
+export default Userbanner
