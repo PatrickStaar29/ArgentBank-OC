@@ -3,6 +3,8 @@ import Logo from './image/argentBankLogo.png'
 import { useDispatch } from 'react-redux'
 import { logoutUser } from '../../actions/userActions'
 import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 function Header (){
@@ -22,7 +24,7 @@ function Header (){
             <nav className="main-nav">
                 <li className={`main-nav-item ${isSignInVisible ? 'textdisplay' : ''}`}>
                     <Link to="/login">
-                        <i className="fa fa-user-circle"></i>
+                        <FontAwesomeIcon icon={faUserCircle} className="fa fa-user-circle"/>
                         Sign In
                     </Link>
                 </li>

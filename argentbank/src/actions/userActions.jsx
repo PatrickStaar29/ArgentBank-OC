@@ -1,4 +1,3 @@
-// src/actions/authActions.js
 import { setUserToken, setUserFirstName, setUserLastName, setUserName } from "../reducers/userSlice"
 import { fetchUserProfile } from "./profileActions"
 

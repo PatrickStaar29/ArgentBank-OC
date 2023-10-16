@@ -10,10 +10,9 @@ function UserForm({ onCancelClick }) {
   
   const handleChangeUsernameInClick = async () => {
     const username = document.getElementById('userName').value;
+    onCancelClick()
 
-    //                    token,    username
     dispatch(fetchUserName(authToken, username, dispatch))
-    // token, username
   }
 
   

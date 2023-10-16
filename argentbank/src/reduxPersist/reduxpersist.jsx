@@ -1,7 +1,8 @@
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistReducer, persistStore  } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import rootReducer from '../reducers/index'; // Importez votre root reducer
+import rootReducer from '../reducers/index'; 
 import { configureStore } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk'
 
 const persistConfig = {
   key: 'root',
@@ -12,6 +13,9 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+  middleware: [thunk]
+  
 })
 
-export const persistor = persistStore(store);
+export const persistor = persistStore(store)

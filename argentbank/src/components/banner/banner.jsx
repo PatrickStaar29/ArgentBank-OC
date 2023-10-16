@@ -1,5 +1,3 @@
-
-
 function Banner (){
     return(
         <div className="hero">

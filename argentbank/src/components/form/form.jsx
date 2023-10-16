@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../actions/userActions';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 function Form() {
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ function Form() {
 
   return (
     <section className="sign-in-content">
-      <i className="fa fa-user-circle sign-in-icon"></i>
+      <FontAwesomeIcon icon={faUserCircle} className="fa fa-user-circle sign-in-icon"/>
       <h1>Sign In</h1>
       <form>
         <div className="input-wrapper">

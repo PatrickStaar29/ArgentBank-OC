@@ -10,11 +10,11 @@ function Userbanner() {
 
   const handleEditClick = () => {
     setIsEditing(true);
-  };
+  }
 
   const handleCancelClick = () => {
     setIsEditing(false);
-  };
+  }
 
   return (
     <div className="header">

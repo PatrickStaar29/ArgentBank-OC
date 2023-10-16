@@ -1,5 +1,3 @@
-
-
 function Bankcard () {
     return (
         <section className="account">
