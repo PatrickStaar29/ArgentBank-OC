@@ -107,8 +107,8 @@ paths:
         - Bearer: []
       tags:
         - Transaction module
-      summary: Get accountID
-      description: API to retrieve accountID
+      summary: Retrieve transactions
+      description: Get all transactions datas for the current month
       parameters:
         - in: header
           name: Authorization
@@ -121,50 +121,22 @@ paths:
         "200":
           description: User transactions retrieved successfully
           schema:
-            $ref: "#/definitions/TransactionsResponse"
+            $ref: "#/definitions/GetAllTransactions"
+        "400":
+          description: Invalid Fields
         "401":
           description: Unauthorized
         "404":
           description: Transactions not found
         "500":
           description: Internal Server Error
-  /user/transactions/{accountID}:
-      get:
-        security:
-            - Bearer: []
-        tags:
-            - Transaction module
-        summary: All transactions Current Month API
-        description: Get all data from API with month
-        parameters:
-          - in: path
-            name: accountID
-            description: Id of the transaction that needs to be edited
-            required: true
-            type: string
-
-        produces:
-            - application/json
-        responses:
-            "200":
-                description: User transactions retrieved successfully
-                schema:
-                    $ref: "#/definitions/allTransactionsResponse"
-            "400":
-                description: Invalid Fields
-            "401":
-                description: Unauthorized
-            "404":
-                description: Transactions not found
-            "500":
-                description: Internal Server Error
-  /user/transactions/accountID/{transactionID}:              
+  /user/transactions/{transactionID}:              
       patch:
           security:
               - Bearer: []
           tags:
               - Transaction module
-          summary: Transaction Edit API
+          summary: Edit transaction information
           description: API for updating a transaction
           parameters:
               - in: header
@@ -182,14 +154,14 @@ paths:
                 description: Edit transaction
                 required: true
                 schema:
-                    $ref: "#/definitions/editTransaction"
+                    $ref: "#/definitions/ApiTransactionPatch"
           produces:
               - application/json
           responses:
               "200":
                   description: Transaction edited successfully
                   schema:
-                      $ref: "#/definitions/ApiTransactionResponse"
+                      $ref: "#/definitions/ApiTransactionPatchUpdated"
               "400":
                   description: Invalid Fields
               "401":
@@ -203,8 +175,8 @@ paths:
               - Bearer: []
           tags:
               - Transaction module
-          summary: Transaction Delete API
-          description: API for deleting a transaction
+          summary: Delete API information
+          description: API for deleting transaction information
           parameters:
               - in: header
                 name: Authorization
@@ -216,11 +188,19 @@ paths:
                 description: Id of the transaction that needs to be deleted
                 required: true
                 type: string
+              - in: body
+                name: delete
+                description: Delete information
+                required: true
+                schema:
+                    $ref: "#/definitions/ApiInformationDelete"
           produces:
               - application/json
           responses:
               "200":
-                  description: Transaction deleted successfully
+                  description: Transaction edited successfully
+                  schema:
+                      $ref: "#/definitions/ApiTransactionDeleteUpdated"
               "400":
                   description: Invalid Fields
               "401":
@@ -284,32 +264,31 @@ definitions:
     properties:
       userName:
         type: string
-  TransactionsResponse:
-        type: object
-        properties:
-          accountID:
-            type: string
-          balanceAccount:
-            type: number
-  allTransactionsResponse:
+  GetAllTransactions:
+    type: object
     properties:
       status:
         type: integer
       message:
         type: string
-      transactions_1:
+      transactions:
         type: array
         items:
           $ref: '#/definitions/Transaction'
-      transactions_2:
+  ApiTransactionPatchUpdated:
+    type: object
+    properties:
+      transactions:
         type: array
         items:
           $ref: '#/definitions/Transaction'
-      transactions_3:
+  ApiTransactionDeleteUpdated:
+    type: object
+    properties:
+      transactions:
         type: array
         items:
-          $ref: '#/definitions/Transaction'
-
+          $ref: '#/definitions/Transaction'        
   Transaction:
     type: object
     properties:
@@ -330,19 +309,16 @@ definitions:
         description: Category of the transaction
       notes:
         type: string
-        description: Notes of the transaction       
-                    
-  editTransaction:
-        properties:
-            category:
-                type: string
-                description: New category of this transaction
-            notes:
-                type: string
-                description: New notes of this transaction
-  ApiTransactionResponse:
-        properties:
+        description: Notes of the transaction     
+  ApiTransactionPatch:
+   properties:
             category:
               type: string
             notes:
-              type: string
+              type: string 
+  ApiInformationDelete:
+    properties:
+      category:
+        type: string
+      notes:
+        type: string            
