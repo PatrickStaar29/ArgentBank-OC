@@ -231,7 +231,7 @@ paths:
               - application/json
           responses:
               "200":
-                  description: Transaction edited delete
+                  description: Information delete
                   schema:
                     $ref: "#/definitions/DeleteConfirmation"
               "400":
