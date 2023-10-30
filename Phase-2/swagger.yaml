@@ -231,7 +231,7 @@ paths:
               - application/json
           responses:
               "200":
-                  description: Transaction edited successfully
+                  description: Transaction edited delete
                   schema:
                     $ref: "#/definitions/DeleteConfirmation"
               "400":
@@ -316,9 +316,7 @@ definitions:
       message:
         type: string
       body:
-        type: array
-        items:
-          $ref: '#/definitions/Transaction'
+        $ref: '#/definitions/Transaction'
   ApiTransactionPatchUpdated:
     type: object
     properties:
@@ -327,9 +325,7 @@ definitions:
       message:
         type: string
       body:
-        type: array
-        items:
-          $ref: '#/definitions/Transaction'
+        $ref: '#/definitions/Transaction'
   Transaction:
     type: object
     properties:
