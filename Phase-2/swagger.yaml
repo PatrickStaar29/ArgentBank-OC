@@ -271,6 +271,9 @@ definitions:
         type: integer
       message:
         type: string
+      balanceAccount:
+        type: number
+        description: Balance of the user's account
       transactions:
         type: array
         items:
